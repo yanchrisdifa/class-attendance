@@ -1,1 +1,0 @@
-dimas sang heavenly emperor
