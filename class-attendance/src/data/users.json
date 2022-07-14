@@ -1,0 +1,20 @@
+[
+  {
+    "username": "Darma Wiguna",
+    "email": "darwigkeren666@gmail.com",
+    "password": "darwig123",
+    "role": "Guru"
+  },
+  {
+    "username": "Muhammad Sufyan",
+    "email": "muhammadsufyann09@gmail.com",
+    "password": "dummypassword",
+    "role": "Admin"
+  },
+  {
+    "username": "Dimas Gracio",
+    "email": "dimasanjaymabar@gmail.com",
+    "password": "dummypassword2",
+    "role": "Ketua Kelas"
+  }
+]
