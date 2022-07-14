@@ -1,0 +1,85 @@
+@import '../variables.scss';
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    .forms-container {
+        width: 100%;
+        height: 100%;
+        background-color: $primary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .forms-content {
+            // background-color: red;
+            // overflow: hidden;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            h2 {
+                text-align: center;
+                margin-top: 10px;
+                span {
+                    color: $accent;
+                }
+            }
+            .logo-image-container {
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                // background-color: rgb(211, 211, 211);
+                background-image: url('https://i.ibb.co/MSzNKcL/286827363-177325744654400-2464067338634645388-n.jpg');
+                background-size: cover;
+                margin: auto;
+
+            }
+            form {
+                margin-top: 20px;
+                .form {
+                    &:not(&:nth-child(1)){
+                        margin-top: 30px;
+                    }
+                    * {
+                        width : 100%;
+                    }
+                    p {
+                        font-weight: bold;
+                    }
+                    input {
+                        padding: 10px;
+                        border: 0;
+                        border-bottom: 2px solid $secondary;
+                        outline-offset: -2px;
+                        font-weight: bold;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                }
+                button {
+                    width : 100%;
+                    margin-top: 30px;
+                    padding: 10px 0;
+                    background-color: $secondary;
+                    color: #fff;
+                    border: 0;
+                    border-radius: 5px;
+                    font-size: 15px;
+                    &:hover {
+                        cursor: pointer;
+                        transition: .3s;
+                        background-color: $secondary-overlay;
+                    }
+                }
+            }
+        }
+    }
+    .hero-image-container {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(70deg, rgba(0, 0, 0, 0.877), rgba(0, 0, 0, 0.233)), url('https://spotbalinews.com/wp-content/uploads/2021/07/IMG-20210704-WA0011-725x375.jpg');
+        background-size: cover;
+    }
+}
