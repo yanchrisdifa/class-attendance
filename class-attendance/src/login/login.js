@@ -1,7 +1,9 @@
 import { useState } from "react";
+import Swal from 'sweetalert2'
 import "./login.scss";
 
 const userDatas = require("../data/users.json");
+let oneUserData = {};
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -13,19 +15,45 @@ const Login = () => {
     if (val.length >= 4) {
       if (type === "username") {
         setUsername(val);
-        console.log(username);
       } else if (type === "password") {
         setPassword(val);
-        console.log(password);
       }
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(username);
-    console.log(password);
+    if(username.length >= 4) {
+      const loginData = {
+        username : username,
+        password : password
+      }
+      console.log(loginData)
+      oneUserData = userDatas.find((data) => {
+        return (data.username === loginData.username) && (data.password === loginData.password)
+      })
+      if(oneUserData) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Successfully',
+          text: 'Continue as this user!',
+          confirmButtonText: 'OK!'
+        })
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed',
+          text : 'Please input correct username or password!',
+          cancelButtonText: 'OK!'
+        })
+      }
+    } else {
+      Swal.fire({
+        icon : 'info',
+        title : 'Invalid Input!',
+        text: 'Please input greater than 3 character'
+      })
+    }
   };
 
   return (

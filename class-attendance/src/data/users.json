@@ -16,5 +16,11 @@
     "email": "dimasanjaymabar@gmail.com",
     "password": "dummypassword2",
     "role": "Ketua Kelas"
+  },
+  {
+    "username": "testt",
+    "email": "dimasanjaymabar@gmail.com",
+    "password": "testt",
+    "role": "Ketua Kelas"
   }
 ]
