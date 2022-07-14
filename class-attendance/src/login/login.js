@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Swal from 'sweetalert2'
 import "./login.scss";
+import { useNavigate } from 'react-router-dom'
 
 const userDatas = require("../data/users.json");
 let oneUserData = {};
 
 const Login = () => {
+  const navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -37,21 +39,47 @@ const Login = () => {
           icon: 'success',
           title: 'Login Successfully',
           text: 'Continue as this user!',
-          confirmButtonText: 'OK!'
+          confirmButtonText: 'OK!',
+          showCancelButton : true
+        }).then((resp) => {
+          if(resp.isConfirmed){
+            if(oneUserData.role.length > 1){
+              Swal.fire({
+                title : 'Select the user type',
+                input : 'select',
+                inputOptions : oneUserData.role,
+                confirmButtonText : 'Login!',
+                showCancelButton : true
+              }).then((resp) => {
+                if(resp.isConfirmed){
+                  navigate('/dashboard')
+                }
+              })
+            } else {
+              navigate('/dashboard')
+            }
+          }
         })
       } else {
+        oneUserData = {}
         Swal.fire({
           icon: 'error',
           title: 'Login Failed',
           text : 'Please input correct username or password!',
-          cancelButtonText: 'OK!'
+          cancelButtonText: 'OK!',
+          showCancelButton : true,
+          showConfirmButton : false
         })
       }
     } else {
+      oneUserData = {}
       Swal.fire({
         icon : 'info',
         title : 'Invalid Input!',
-        text: 'Please input greater than 3 character'
+        text: 'Please input greater than 3 character',
+        cancelButtonText : 'Understand!',
+        showCancelButton : true,
+        showConfirmButton : false
       })
     }
   };
