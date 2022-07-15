@@ -1,0 +1,17 @@
+[
+  {
+    "class": "XII RPL 1",
+    "students": [
+      {
+        "name": "Muhammad Sufyan",
+        "absence_number": "21",
+        "absence_status": ["present", "on leave", "not present"]
+      },
+      {
+        "name": "Yan Chris Difa",
+        "absence_number": "25",
+        "absence_status": ["present", "on leave", "not present"]
+      }
+    ]
+  }
+]
