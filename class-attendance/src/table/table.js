@@ -11,7 +11,7 @@ const Table = () => {
       <table className="table-container">
         <thead className="table-container-head">
           <tr className="table-container-head-row">
-            <th>Absence</th>
+            <th>No.</th>
             <th>Name</th>
             <th>Status</th>
             <th>Action</th>

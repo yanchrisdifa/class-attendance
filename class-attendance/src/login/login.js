@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Swal from 'sweetalert2'
 import "./login.scss";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const userDatas = require("../data/users.json");
 let oneUserData = {};
@@ -85,7 +85,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div className="login-container">
       <div className="forms-container">
         <div className="forms-content">
           <div className="logo-image-container"></div>
