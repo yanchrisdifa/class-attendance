@@ -1,6 +1,7 @@
 import "./App.scss";
 import Login from "./login/login";
 import Dashboard from "./dashboard/dashboard";
+import Sidebar from "./sidebar/sidebar";
 import {
   BrowserRouter as Router,
   Route,
@@ -12,8 +13,8 @@ function App() {
   return (
       <Router>
         <Routes>
-          <Route path="/" element={<Login/>}></Route>
-          <Route path="/dashboard" element={<Dashboard/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
+          <Route path="/:menu" element={<Sidebar/>}></Route>
         </Routes>
       </Router>
     );
