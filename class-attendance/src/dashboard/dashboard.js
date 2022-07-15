@@ -1,5 +1,7 @@
+import Table from "../table/table";
+
 const Dashboard = () => {
-    return <h1>Hello World</h1>
-}
+  return <Table />;
+};
 
 export default Dashboard;
