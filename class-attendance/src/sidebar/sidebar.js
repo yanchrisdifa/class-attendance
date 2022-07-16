@@ -1,7 +1,7 @@
 import "./sidebar.scss";
 import { BsTable } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import Dashboard from "../dashboard/dashboard";
 import Login from "../login/login";
 import Table from "../table/table";
@@ -11,6 +11,8 @@ const menus = require('../data/sidebar-menus.json')
 const Sidebar = () => {
     const navigate = useNavigate()
     const activeMenuName = useParams()
+    const location = useLocation()
+    console.log('user active ', location.state.userActive)
     return (
         <div className="sidebar">
             <div className="sidebar-container">
