@@ -35,31 +35,49 @@ const Login = () => {
         return (data.username === loginData.username) && (data.password === loginData.password)
       })
       if(oneUserData) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Login Successfully',
-          text: 'Continue as this user!',
-          confirmButtonText: 'OK!',
-          showCancelButton : true
-        }).then((resp) => {
-          if(resp.isConfirmed){
-            if(oneUserData.role.length > 1){
+        if(oneUserData.role.length === 1){
+          Swal.fire({
+            icon: 'success',
+            title: 'Login Successfully',
+            text: 'Continue as this user!',
+            confirmButtonText: 'OK!',
+            showCancelButton : true
+          }).then((resp) => {
+            if(resp.isConfirmed){
+                navigate('/dashboard', {
+                  state : {
+                    userActive : oneUserData
+                  }
+                })
+            }
+          })
+        } else {
+          Swal.fire({
+            title : 'Select the user type',
+            input : 'select',
+            inputOptions : oneUserData.role,
+            confirmButtonText : 'Login!',
+            showCancelButton : true
+          }).then((resp) => {
+            if(resp.isConfirmed){
               Swal.fire({
-                title : 'Select the user type',
-                input : 'select',
-                inputOptions : oneUserData.role,
-                confirmButtonText : 'Login!',
+                icon: 'success',
+                title: 'Login Successfully',
+                text: 'Continue as this user!',
+                confirmButtonText: 'OK!',
                 showCancelButton : true
-              }).then((resp) => {
-                if(resp.isConfirmed){
-                  navigate('/dashboard')
+              }).then((confirm) => {
+                if(confirm.isConfirmed === true){
+                  navigate('/dashboard', {
+                    state : {
+                      userActive : oneUserData
+                    }
+                  })
                 }
               })
-            } else {
-              navigate('/dashboard')
             }
-          }
-        })
+          })
+        }
       } else {
         oneUserData = {}
         Swal.fire({
