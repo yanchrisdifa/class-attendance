@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Swal from 'sweetalert2'
 import "./login.scss";
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const userDatas = require("../data/users.json");
 let oneUserData = {};
